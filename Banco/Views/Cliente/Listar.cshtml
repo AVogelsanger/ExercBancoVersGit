@@ -1,0 +1,30 @@
+﻿@model List<Banco.Models.Cliente>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Clientes</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>CPF</th>
+        <th>NOME</th>
+        <th>DATA DE NASCIMENTO</th>
+        <th>DATA DE CADASTRO</th>
+        <th>ENDEREÇO</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>@cliente.cpf</td>
+            <td>@cliente.nome</td>
+            <td>@cliente.dataNascimento.ToShortDateString()</td>
+            <td>@cliente.dataCadastro.ToShortDateString()</td>
+            <td>@cliente.endereco</td>
+        </tr>
+    }
+</table>

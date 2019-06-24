@@ -1,0 +1,51 @@
+﻿@model Banco.Models.Cliente
+
+@{
+    ViewBag.Title = "CadastrarInd";
+}
+
+<h2>Cadastrar Cliente</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="row form-group">
+        <div class="col-lg-4">
+            @Html.LabelFor(c => c.cpf)
+            @Html.TextBoxFor(c => c.cpf, new { @class = "form-control" })
+        </div>
+        <div class="col-lg-4">
+            @Html.LabelFor(c => c.nome)
+            @Html.TextBoxFor(c => c.nome, new { @class = "form-control" })
+        </div>
+        <div class="col-lg-4">
+            @Html.LabelFor(c => c.dataNascimento)
+            @Html.TextBoxFor(c => c.dataNascimento, htmlAttributes: new { @type = "date", @class = "form-control" })
+        </div>
+        
+    </div>
+
+    <div class="row form-group">
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.dataCadastro)
+            @Html.TextBoxFor(c => c.dataCadastro, htmlAttributes: new { @type = "date", @class = "form-control" })
+        </div>
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.endereco)
+            @Html.TextBoxFor(c => c.endereco, new { @class = "form-control" })
+        </div>
+    </div>    
+
+
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+    </div>
+
+}

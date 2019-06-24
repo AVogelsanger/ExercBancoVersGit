@@ -1,0 +1,51 @@
+﻿@model Banco.Models.Conta
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar Conta</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row form-group">
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.agencia)
+            @Html.TextBoxFor(c => c.agencia, new { @class = "form-control" })
+        </div>
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.numeroConta)
+            @Html.TextBoxFor(c => c.numeroConta, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.tipoConta)
+            @Html.DropDownListFor(c => c.contaId, ViewBag.Contas as SelectList)
+        </div>
+        <div class="col-lg-6">
+            @Html.LabelFor(c => c.saldo)
+            @Html.TextBoxFor(c => c.saldo, new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="row form-group">
+        @Html.LabelFor(c => c.Cliente)
+        @Html.DropDownListFor(c => c.clienteId, ViewBag.Clientes as SelectList)
+    </div>
+    
+
+     <div class="row form-group">
+            <div class="col-lg-12">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+     </div>
+}
+
+
+

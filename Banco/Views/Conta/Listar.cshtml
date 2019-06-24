@@ -1,0 +1,33 @@
+﻿@model List<Banco.Models.Conta>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Conta - Cliente</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>AGENCIA</th>
+        <th>NUMERO DA CONTA</th>
+        <th>TIPO DE CONTA</th>
+        <th>SALDO</th>
+        <th>CLIENTE</th>
+        <th>NOME</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>@cliente.agencia</td>
+            <td>@cliente.numeroConta</td>
+            <td>@cliente.tipoConta</td>
+            <td>@cliente.saldo</td>
+            <td>@cliente.Cliente.clienteId</td>
+            <td>@cliente.Cliente.nome</td>
+        </tr>
+    }
+</table>
+
